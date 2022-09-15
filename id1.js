@@ -73,26 +73,26 @@ const displayEntries=()=>{
     details.innerHTML=table;
 }
 
-const saveUserForm=(event)=>{
-     event.preventDefault();
-     const name=document.getElementById("name").value;
-     const email=document.getElementById("email").value;
-     const password=document.getElementById("password").value;
-     const dob=document.getElementById("dob").value;
 
-     const acceptedTermsAndCondition=document.getElementById("acceptTerms").checked;
-     const entry={
-        name,
-        email,
-        password,
-        dob,
-        acceptedTermsAndCondition
-     };
-     userEntries.push(entry);
-     localStorage.setItem("entries",JSON.stringify(userEntries));
-     displayEntries();
-}
-userform.addEventListener("submit",saveUserForm);
+userform.addEventListener("submit",function saveUserForm(event){
+    event.preventDefault();
+    const name=document.getElementById("name").value;
+    const email=document.getElementById("email").value;
+    const password=document.getElementById("password").value;
+    const dob=document.getElementById("dob").value;
+
+    const acceptedTermsAndCondition=document.getElementById("acceptTerms").checked;
+    const entry={
+       name,
+       email,
+       password,
+       dob,
+       acceptedTermsAndCondition
+    };
+    userEntries.push(entry);
+    localStorage.setItem("entries",JSON.stringify(userEntries));
+    displayEntries();
+});
 displayEntries();
 
 
